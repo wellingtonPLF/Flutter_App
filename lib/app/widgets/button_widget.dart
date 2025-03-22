@@ -21,12 +21,12 @@ class CustomButton extends StatelessWidget {
       height: altura,
       child: TextButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(corBotao),
-          foregroundColor: MaterialStateProperty.all<Color>(corBotao!),
-          overlayColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.hovered)) return Colors.blue.withOpacity(0.04);
-              if (states.contains(MaterialState.focused) || states.contains(MaterialState.pressed)) return Colors.blue.withOpacity(0.12);
+          backgroundColor: WidgetStateProperty.all(corBotao),
+          foregroundColor: WidgetStateProperty.all<Color>(corBotao!),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.hovered)) return Colors.blue.withOpacity(0.04);
+              if (states.contains(WidgetState.focused) || states.contains(WidgetState.pressed)) return Colors.blue.withOpacity(0.12);
               return null;
             },
           ),

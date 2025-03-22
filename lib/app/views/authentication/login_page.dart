@@ -113,12 +113,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                         builder: (_) {
                           return TextButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(CONS_COR_BOTAO),
-                              foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                              overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                                (Set<MaterialState> states) {
-                                  if (states.contains(MaterialState.hovered)) return Colors.blue.withOpacity(0.04);
-                                  if (states.contains(MaterialState.focused) || states.contains(MaterialState.pressed)) {
+                              backgroundColor: WidgetStateProperty.all(CONS_COR_BOTAO),
+                              foregroundColor: WidgetStateProperty.all<Color>(Colors.blue),
+                              shape: WidgetStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4), // Set the border-radius
+                                ),
+                              ),
+                              overlayColor: WidgetStateProperty.resolveWith<Color?>(
+                                (Set<WidgetState> states) {
+                                  if (states.contains(WidgetState.hovered)) return Colors.blue.withOpacity(0.04);
+                                  if (states.contains(WidgetState.focused) || states.contains(WidgetState.pressed)) {
                                     return Colors.blue.withOpacity(0.12);
                                   }
                                   return null;
@@ -127,8 +132,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                             ),
                             onPressed: (authController.isLoading! ? null : () => authController.login(context)),
                             child: SizedBox(
-                              width: largura * 0.5,
-                              height: 40,
+                              width: largura * 0.3,
+                              height: 30,
                               child: (authController.isLoading!
                                   ? const SizedBox(
                                       height: 100,

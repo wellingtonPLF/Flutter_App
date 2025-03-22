@@ -55,12 +55,12 @@ class CustomDrawwer extends StatelessWidget {
               (!controller.islogged! && connected!)
                   ? ListTile(
                       leading: Icon(
-                        MdiIcons.login,
+                        MdiIcons.loginVariant,
                         size: 25,
                       ),
                       selected: page == 1,
                       title: const Text(
-                        "Entrar",
+                        "Autenticação",
                         style: TextStyle(fontSize: 16),
                       ),
                       onTap: () {
@@ -70,7 +70,7 @@ class CustomDrawwer extends StatelessWidget {
                   : Container(),
               ListTile(
                 leading: Icon(
-                  MdiIcons.tools,
+                  MdiIcons.information,
                   size: 30,
                 ),
                 selected: page == 6,
